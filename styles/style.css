@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-orange{
+    background-color: orange;
+}
+
+input{
+    width: 19.5rem;
+    height: 3rem;
+    font-size: 3rem;
+    text-align: end;
+    margin: 20px 0 10px 25px;
+    
+}
+
+button{
+    font-size: 3rem;
+    min-width: 5rem;
+    max-width: fit-content;
+    margin: 3px;
+    border: none;
+    padding: 5px;
+}
+
+.calculator-body{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid black;
+}
+
+.calculator-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    height: fit-content;
+    margin: 10px;
+}
