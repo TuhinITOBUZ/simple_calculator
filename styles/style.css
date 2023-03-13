@@ -15,12 +15,28 @@ body {
   background-color: orange;
 }
 
-input {
+.inputs {
+    display: flex;
+    flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+#user-input-history {
+  width: 19.5rem;
+  height: 2rem;
+  font-size: 2rem;
+  text-align: end;
+  margin: 10px 0 0 25px;
+  border: none;
+}
+
+#user-input {
   width: 19.5rem;
   height: 3rem;
   font-size: 3rem;
   text-align: end;
-  margin: 20px 0 10px 25px;
+  margin: 0 0 10px 25px;
+  border: none;
 }
 
 button {
@@ -38,10 +54,10 @@ button {
 }
 
 button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
-    color: #fff;
-  }
+  background-color: #2ee59d;
+  box-shadow: 0px 10px 10px rgba(46, 229, 157, 0.4);
+  color: #fff;
+}
 
 .calculator-body {
   display: flex;
