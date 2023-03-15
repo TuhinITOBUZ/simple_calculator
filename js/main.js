@@ -2,6 +2,7 @@ let number1 = "";
 let number2 = "";
 let operation = "";
 
+// function to clear the input screen and free all variables
 function clear() {
   document.getElementById("user-input").value = "";
   document.getElementById("user-input").placeholder = "0";
@@ -11,6 +12,7 @@ function clear() {
   number2 = "";
 }
 
+// function to perform operations
 function performOperation(number1, operation, number2) {
   let result = 0;
   if (operation === "+") {
@@ -26,17 +28,20 @@ function performOperation(number1, operation, number2) {
   return result;
 }
 
+// function to add values in the input screen
 function addValueInInputField(element) {
   let inputValue = document.getElementById("user-input").value;
   document.getElementById("user-input").value =
     inputValue + element.textContent.toString();
 }
 
+// function to change operator
 function changeOperation(element) {
   operation = element.textContent.toString();
   document.getElementById("user-input-history").value = number1 + operation;
 }
 
+// function to add value to number1 variable
 function number1ValueAddition(element) {
   if (document.getElementById("user-input").value != "") {
     operation = element.textContent.toString();
@@ -49,22 +54,28 @@ function number1ValueAddition(element) {
   }
 }
 
-function setUserInput(){
+// function to set new input screen
+function setUserInput() {
   document.getElementById("user-input").value = "";
   document.getElementById("user-input").placeholder = "0";
 }
 
+// adding event to all the number buttons
 document.querySelectorAll(".number-button").forEach((element) => {
   element.addEventListener("click", () => {
     addValueInInputField(element);
   });
 });
 
+// adding event to all the special buttons and logic
 document.querySelectorAll(".special-button").forEach((element) => {
   element.addEventListener("click", () => {
+    // if AC button is clicked
     if (element.textContent === "AC") {
       clear();
-    } else if (element.textContent === "del") {
+    }
+    // if 'del'  button is clicked
+    else if (element.textContent === "del") {
       let number = document.getElementById("user-input").value;
       document.getElementById("user-input").value = number.substring(
         0,
@@ -73,9 +84,14 @@ document.querySelectorAll(".special-button").forEach((element) => {
     } else if (element.textContent === ".") {
       let inputArr = document.getElementById("user-input").value.split(".");
       if (inputArr.length == 1) {
+        if (inputArr[0] === "") {
+          document.getElementById("user-input").value = "0";
+        }
         addValueInInputField(element);
       }
-    } else if (element.textContent === "x") {
+    }
+    // if multiplication button is clicked
+    else if (element.textContent === "x") {
       if (number1 === "") {
         number1ValueAddition(element);
       } else if (
@@ -92,16 +108,18 @@ document.querySelectorAll(".special-button").forEach((element) => {
         number2 = document.getElementById("user-input").value;
         number1 = performOperation(number1, operation, number2);
         changeOperation(element);
-        setUserInput()
+        setUserInput();
       } else {
         number2 = document.getElementById("user-input").value;
-        number1 = performOperation(number1, "*", number2)
+        number1 = performOperation(number1, "*", number2);
         operation = element.textContent.toString();
         document.getElementById("user-input-history").value =
           number1 + operation;
-        setUserInput()
+        setUserInput();
       }
-    } else if (element.textContent === "+") {
+    }
+    // if plus button is clicked
+    else if (element.textContent === "+") {
       if (number1 === " ") {
         number1ValueAddition(element);
       } else if (
@@ -118,16 +136,18 @@ document.querySelectorAll(".special-button").forEach((element) => {
         number2 = document.getElementById("user-input").value;
         number1 = performOperation(number1, operation, number2);
         changeOperation(element);
-        setUserInput()
+        setUserInput();
       } else {
         number2 = document.getElementById("user-input").value;
-        number1 = performOperation(number1, "+", number2)
+        number1 = performOperation(number1, "+", number2);
         operation = element.textContent.toString();
         document.getElementById("user-input-history").value =
           number1 + operation;
-        setUserInput()
+        setUserInput();
       }
-    } else if (element.textContent === "-") {
+    }
+    // if minus button is clicked
+    else if (element.textContent === "-") {
       if (number1 === "") {
         number1ValueAddition(element);
       } else if (
@@ -144,16 +164,18 @@ document.querySelectorAll(".special-button").forEach((element) => {
         number2 = document.getElementById("user-input").value;
         number1 = performOperation(number1, operation, number2);
         changeOperation(element);
-        setUserInput()
+        setUserInput();
       } else {
         number2 = document.getElementById("user-input").value;
-        number1 = performOperation(number1, "-", number2)
+        number1 = performOperation(number1, "-", number2);
         operation = element.textContent.toString();
         document.getElementById("user-input-history").value =
           number1 + operation;
-        setUserInput()
+        setUserInput();
       }
-    } else if (element.textContent === "/") {
+    }
+    // if division button is clicked
+    else if (element.textContent === "/") {
       if (number1 === "") {
         number1ValueAddition(element);
       } else if (
@@ -170,16 +192,18 @@ document.querySelectorAll(".special-button").forEach((element) => {
         number2 = document.getElementById("user-input").value;
         number1 = performOperation(number1, operation, number2);
         changeOperation(element);
-        setUserInput()
+        setUserInput();
       } else {
         number2 = document.getElementById("user-input").value;
-        number1 = performOperation(number1, "/", number2)
+        number1 = performOperation(number1, "/", number2);
         operation = element.textContent.toString();
         document.getElementById("user-input-history").value =
           number1 + operation;
-        setUserInput()
+        setUserInput();
       }
-    } else if (element.textContent === "=") {
+    }
+    // if '=' button is clicked
+    else if (element.textContent === "=") {
       number2 = document.getElementById("user-input").value;
       document.getElementById("user-input").value = result = performOperation(
         number1,
