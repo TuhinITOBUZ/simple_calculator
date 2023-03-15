@@ -54,7 +54,7 @@ function number1ValueAddition(element) {
   }
 }
 
-// function to set new input screen
+// function to clear input screen
 function setUserInput() {
   document.getElementById("user-input").value = "";
   document.getElementById("user-input").placeholder = "0";
